@@ -51,20 +51,19 @@ function stanford_news_field_group_info() {
   $field_group->entity_type = 'node';
   $field_group->bundle = 'stanford_news_item';
   $field_group->mode = 'full';
-  $field_group->parent_name = 'group_s_postcard_content';
+  $field_group->parent_name = '';
   $field_group->data = array(
-    'label' => 'Descriptor Info',
-    'weight' => '3',
+    'label' => 'Date Styles',
+    'weight' => '0',
     'children' => array(
       0 => 'field_s_news_date',
-      1 => 'field_s_news_source',
-      2 => 'group_s_news_postedin',
     ),
     'format_type' => 'div',
     'format_settings' => array(
-      'label' => 'Descriptor Info',
+      'label' => 'Date Styles',
       'instance_settings' => array(
-        'classes' => 'descriptor',
+        'id' => '',
+        'classes' => 'summary',
         'description' => '',
         'show_label' => '0',
         'label_element' => 'h3',
@@ -79,6 +78,35 @@ function stanford_news_field_group_info() {
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
   $field_group->api_version = 1;
+  $field_group->identifier = 'group_related_content|node|stanford_news_item|form';
+  $field_group->group_name = 'group_related_content';
+  $field_group->entity_type = 'node';
+  $field_group->bundle = 'stanford_news_item';
+  $field_group->mode = 'form';
+  $field_group->parent_name = '';
+  $field_group->data = array(
+    'label' => 'Category/Related Content Tags',
+    'weight' => '5',
+    'children' => array(
+      0 => 'field_s_news_categories',
+      1 => 'field_related_content',
+    ),
+    'format_type' => 'fieldset',
+    'format_settings' => array(
+      'label' => 'Category/Related Content Tags',
+      'instance_settings' => array(
+        'required_fields' => 1,
+        'classes' => 'group-related-content field-group-fieldset',
+        'description' => '',
+      ),
+      'formatter' => 'collapsed',
+    ),
+  );
+  $export['group_related_content|node|stanford_news_item|form'] = $field_group;
+
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
   $field_group->identifier = 'group_s_news_advanced|node|stanford_news_item|form';
   $field_group->group_name = 'group_s_news_advanced';
   $field_group->entity_type = 'node';
@@ -86,14 +114,14 @@ function stanford_news_field_group_info() {
   $field_group->mode = 'form';
   $field_group->parent_name = '';
   $field_group->data = array(
-    'label' => 'Advanced',
-    'weight' => '11',
+    'label' => 'Add/Edit Homepage Featured Item',
+    'weight' => '9',
     'children' => array(
       0 => 'field_s_news_featured',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
-      'label' => 'Advanced',
+      'label' => 'Add/Edit Homepage Featured Item',
       'instance_settings' => array(
         'required_fields' => 0,
         'classes' => '',
@@ -175,10 +203,9 @@ function stanford_news_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Add/Edit External Article Information',
-    'weight' => '1',
+    'weight' => '8',
     'children' => array(
-      0 => 'field_s_news_date',
-      1 => 'field_s_news_source',
+      0 => 'field_s_news_source',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
@@ -232,13 +259,11 @@ function stanford_news_field_group_info() {
   $field_group->entity_type = 'node';
   $field_group->bundle = 'stanford_news_item';
   $field_group->mode = 'full';
-  $field_group->parent_name = 'group_descriptor_info';
+  $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Posted In: ',
-    'weight' => '7',
-    'children' => array(
-      0 => 'field_s_news_categories',
-    ),
+    'weight' => '13',
+    'children' => array(),
     'format_type' => 'div',
     'format_settings' => array(
       'label' => 'Posted In: ',
@@ -333,9 +358,9 @@ function stanford_news_field_group_info() {
     'label' => 'Postcard Content',
     'weight' => '11',
     'children' => array(
-      0 => 'body',
-      1 => 'field_s_news_attachment',
-      2 => 'field_s_news_link',
+      0 => 'field_s_news_attachment',
+      1 => 'field_s_news_link',
+      2 => 'body',
       3 => 'group_descriptor_info',
     ),
     'format_type' => 'div',
@@ -367,10 +392,8 @@ function stanford_news_field_group_info() {
     'label' => 'Postcard Content',
     'weight' => '2',
     'children' => array(
-      0 => 'field_s_news_attachment',
-      1 => 'field_s_news_link',
-      2 => 'body',
-      3 => 'group_descriptor_info',
+      0 => 'field_s_news_categories',
+      1 => 'body',
     ),
     'format_type' => 'div',
     'format_settings' => array(
@@ -463,9 +486,7 @@ function stanford_news_field_group_info() {
   $field_group->data = array(
     'label' => 'Postcard Image',
     'weight' => '1',
-    'children' => array(
-      0 => 'field_s_image_info',
-    ),
+    'children' => array(),
     'format_type' => 'div',
     'format_settings' => array(
       'label' => 'Postcard Image',
@@ -525,7 +546,7 @@ function stanford_news_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Postcard',
-    'weight' => '0',
+    'weight' => '2',
     'children' => array(
       0 => 'group_s_postcard_content',
       1 => 'group_s_postcard_image',

@@ -66,7 +66,49 @@ function stanford_news_field_default_field_instances() {
         'summary_rows' => 5,
       ),
       'type' => 'text_textarea_with_summary',
-      'weight' => 4,
+      'weight' => 3,
+    ),
+  );
+
+  // Exported field_instance: 'node-stanford_news_item-field_related_content'
+  $field_instances['node-stanford_news_item-field_related_content'] = array(
+    'bundle' => 'stanford_news_item',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => 'Choose the appropriate Related Content tag(s).',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 2,
+      ),
+      'full' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 12,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_related_content',
+    'label' => 'Related Content',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_buttons',
+      'weight' => 6,
     ),
   );
 
@@ -98,10 +140,10 @@ function stanford_news_field_default_field_instances() {
           'delete' => '',
           'description' => 0,
           'edit' => '',
-          'view_mode' => 'stanford_large_scaled',
+          'view_mode' => 'caw_banner_9_column',
         ),
         'type' => 'field_collection_view',
-        'weight' => 7,
+        'weight' => 1,
       ),
       'taxonomy' => array(
         'label' => 'hidden',
@@ -135,7 +177,7 @@ function stanford_news_field_default_field_instances() {
       'module' => 'field_collection',
       'settings' => array(),
       'type' => 'field_collection_embed',
-      'weight' => 3,
+      'weight' => 2,
     ),
   );
 
@@ -154,10 +196,9 @@ function stanford_news_field_default_field_instances() {
       ),
       'full' => array(
         'label' => 'hidden',
-        'module' => 'file',
         'settings' => array(),
-        'type' => 'file_default',
-        'weight' => 6,
+        'type' => 'hidden',
+        'weight' => 16,
       ),
       'taxonomy' => array(
         'label' => 'inline',
@@ -243,8 +284,7 @@ function stanford_news_field_default_field_instances() {
     'bundle' => 'stanford_news_item',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => 'Choose the appropriate category tag(s).  To select more than one tag, hold the Ctrl or Command keyboard key on the Mac. If you do not have any Categories yet, a site administrator can add
-them, and integrate them with the site architecture.',
+    'description' => 'Choose the appropriate category tag(s).',
     'display' => array(
       'default' => array(
         'label' => 'hidden',
@@ -257,14 +297,14 @@ them, and integrate them with the site architecture.',
         'weight' => 15,
       ),
       'full' => array(
-        'label' => 'hidden',
+        'label' => 'above',
         'module' => 'ds',
         'settings' => array(
           'taxonomy_term_link' => 0,
           'taxonomy_term_separator' => ', ',
         ),
         'type' => 'ds_taxonomy_separator',
-        'weight' => 11,
+        'weight' => 6,
       ),
       'taxonomy' => array(
         'label' => 'hidden',
@@ -292,7 +332,7 @@ them, and integrate them with the site architecture.',
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_buttons',
-      'weight' => 2,
+      'weight' => 5,
     ),
   );
 
@@ -300,13 +340,13 @@ them, and integrate them with the site architecture.',
   $field_instances['node-stanford_news_item-field_s_news_date'] = array(
     'bundle' => 'stanford_news_item',
     'deleted' => 0,
-    'description' => 'Use this Date field to indicate the date when a story appeared in an external publication.',
+    'description' => 'Add the date this story was published.',
     'display' => array(
       'default' => array(
         'label' => 'hidden',
         'module' => 'date',
         'settings' => array(
-          'format_type' => 'short',
+          'format_type' => 'stanford_month_date_year',
           'fromto' => 'both',
           'multiple_from' => '',
           'multiple_number' => '',
@@ -319,7 +359,7 @@ them, and integrate them with the site architecture.',
         'label' => 'hidden',
         'module' => 'date',
         'settings' => array(
-          'format_type' => 'short',
+          'format_type' => 'stanford_month_date_year',
           'fromto' => 'both',
           'multiple_from' => '',
           'multiple_number' => '',
@@ -365,14 +405,14 @@ them, and integrate them with the site architecture.',
       'settings' => array(
         'display_all_day' => 0,
         'increment' => 15,
-        'input_format' => 'M j Y - g:i:sa',
+        'input_format' => 'Y-m-d H:i:s',
         'input_format_custom' => '',
         'label_position' => 'above',
         'text_parts' => array(),
         'year_range' => '-3:+3',
       ),
       'type' => 'date_popup',
-      'weight' => 2,
+      'weight' => 1,
     ),
   );
 
@@ -397,7 +437,7 @@ them, and integrate them with the site architecture.',
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 20,
+        'weight' => 18,
       ),
       'taxonomy' => array(
         'label' => 'above',
@@ -450,7 +490,7 @@ them, and integrate them with the site architecture.',
         'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 0,
+        'weight' => 17,
       ),
       'taxonomy' => array(
         'label' => 'above',
@@ -535,7 +575,7 @@ them, and integrate them with the site architecture.',
         'progress_indicator' => 'throbber',
       ),
       'type' => 'image_image',
-      'weight' => 6,
+      'weight' => 4,
     ),
   );
 
@@ -555,10 +595,9 @@ them, and integrate them with the site architecture.',
       ),
       'full' => array(
         'label' => 'hidden',
-        'module' => 'link',
         'settings' => array(),
-        'type' => 'link_default',
-        'weight' => 5,
+        'type' => 'hidden',
+        'weight' => 15,
       ),
       'taxonomy' => array(
         'label' => 'hidden',
@@ -578,6 +617,7 @@ them, and integrate them with the site architecture.',
     'label' => 'External Link',
     'required' => 0,
     'settings' => array(
+      'absolute_url' => 1,
       'attributes' => array(
         'class' => '',
         'configurable_title' => 0,
@@ -590,6 +630,7 @@ them, and integrate them with the site architecture.',
       ),
       'enable_tokens' => 1,
       'title' => 'optional',
+      'title_label_use_field_label' => FALSE,
       'title_maxlength' => 128,
       'title_value' => '',
       'url' => 0,
@@ -601,7 +642,7 @@ them, and integrate them with the site architecture.',
       'module' => 'link',
       'settings' => array(),
       'type' => 'link_field',
-      'weight' => 5,
+      'weight' => 6,
     ),
   );
 
@@ -621,10 +662,9 @@ them, and integrate them with the site architecture.',
       ),
       'full' => array(
         'label' => 'hidden',
-        'module' => 'link',
         'settings' => array(),
-        'type' => 'link_default',
-        'weight' => 6,
+        'type' => 'hidden',
+        'weight' => 14,
       ),
       'taxonomy' => array(
         'label' => 'hidden',
@@ -645,6 +685,7 @@ them, and integrate them with the site architecture.',
     'label' => 'Source',
     'required' => 0,
     'settings' => array(
+      'absolute_url' => 1,
       'attributes' => array(
         'class' => '',
         'configurable_title' => 0,
@@ -657,6 +698,7 @@ them, and integrate them with the site architecture.',
       ),
       'enable_tokens' => 1,
       'title' => 'required',
+      'title_label_use_field_label' => FALSE,
       'title_maxlength' => 128,
       'title_value' => '',
       'url' => 0,
@@ -674,10 +716,11 @@ them, and integrate them with the site architecture.',
 
   // Translatables
   // Included for use with string extractors like potx.
+  t('Add the date this story was published.');
   t('Body');
   t('Categories');
-  t('Choose the appropriate category tag(s).  To select more than one tag, hold the Ctrl or Command keyboard key on the Mac. If you do not have any Categories yet, a site administrator can add
-them, and integrate them with the site architecture.');
+  t('Choose the appropriate Related Content tag(s).');
+  t('Choose the appropriate category tag(s).');
   t('Date');
   t('External Link');
   t('Featured');
@@ -686,10 +729,10 @@ them, and integrate them with the site architecture.');
   t('Insert the article\'s source and URL link. (e.g. Stanford Report, http://news.stanford.edu/sr/)');
   t('News Image');
   t('Optional external link associated with this news item.');
+  t('Related Content');
   t('Source');
   t('This is a setting used to feature a news item in various places on the site (e.g., check "Featured" if you want to display this item, leave unchecked if you do not want to display this item).');
   t('Upload file attachments associated with this news item.');
-  t('Use this Date field to indicate the date when a story appeared in an external publication.');
   t('Use this to Insert images into the text.');
 
   return $field_instances;
