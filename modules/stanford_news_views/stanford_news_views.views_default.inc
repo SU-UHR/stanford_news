@@ -450,6 +450,53 @@ function stanford_news_views_views_default_views() {
   $handler->display->display_options['menu']['weight'] = '0';
   $handler->display->display_options['menu']['name'] = 'menu-manage-content-by-type';
   $handler->display->display_options['menu']['context'] = 0;
+  $translatables['admin_manage_stanford_news_item'] = array(
+    t('Defaults'),
+    t('Stanford News Item Content'),
+    t('more'),
+    t('Filter'),
+    t('Reset'),
+    t('Sort by'),
+    t('Asc'),
+    t('Desc'),
+    t('Items per page'),
+    t('- All -'),
+    t('Offset'),
+    t('« first'),
+    t('‹ previous'),
+    t('next ›'),
+    t('last »'),
+    t('author'),
+    t('term'),
+    t('Row'),
+    t('- Choose an operation -'),
+    t('Change author'),
+    t('Delete'),
+    t('Stick'),
+    t('Unstick'),
+    t('Modify News Categories'),
+    t('Promote to front page'),
+    t('Publish'),
+    t('Demote from front page'),
+    t('Unpublish'),
+    t('Image'),
+    t('Title'),
+    t(' New'),
+    t('Last Updated'),
+    t('Published'),
+    t('News Date'),
+    t('Source'),
+    t('News Categories'),
+    t('NID'),
+    t('Actions'),
+    t('[edit_node] |'),
+    t('Edit'),
+    t('[view_node] |'),
+    t(' View'),
+    t(' Delete'),
+    t('News Category'),
+    t('Page'),
+  );
   $export['admin_manage_stanford_news_item'] = $view;
 
   $view = new view();
@@ -468,7 +515,11 @@ function stanford_news_views_views_default_views() {
   $handler->display->display_options['use_more_text'] = 'See more news';
   $handler->display->display_options['link_display'] = 'custom_url';
   $handler->display->display_options['access']['type'] = 'perm';
-  $handler->display->display_options['cache']['type'] = 'none';
+  $handler->display->display_options['cache']['type'] = 'time';
+  $handler->display->display_options['cache']['results_lifespan'] = '3600';
+  $handler->display->display_options['cache']['results_lifespan_custom'] = '0';
+  $handler->display->display_options['cache']['output_lifespan'] = '3600';
+  $handler->display->display_options['cache']['output_lifespan_custom'] = '0';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['query']['options']['distinct'] = TRUE;
   $handler->display->display_options['query']['options']['query_comment'] = FALSE;
@@ -1215,6 +1266,68 @@ function stanford_news_views_views_default_views() {
   $handler->display->display_options['fields']['nothing']['hide_empty'] = TRUE;
   $handler->display->display_options['fields']['nothing']['empty_zero'] = TRUE;
   $handler->display->display_options['fields']['nothing']['hide_alter_empty'] = TRUE;
+  $translatables['stanford_news'] = array(
+    t('Master'),
+    t('See more news'),
+    t('Go'),
+    t('Reset'),
+    t('Sort by'),
+    t('Asc'),
+    t('Desc'),
+    t('Items per page'),
+    t('- All -'),
+    t('Offset'),
+    t('« first'),
+    t('‹ previous'),
+    t('next ›'),
+    t('last »'),
+    t('News Item - No Results'),
+    t('No news items listed.'),
+    t('Nid'),
+    t('| [field_s_news_source]'),
+    t('<span class="descriptor"> | Posted In: </span>'),
+    t('Edit'),
+    t('<div class="postcard-left">
+      <div class="postcard-image">
+           <div class="news-image">[field_s_image_info]</div>
+      </div>
+
+      <div class="postcard-content">
+           <div><h3>[title]</h3></div>
+           <div class="descriptor">[field_s_news_date] [field_s_news_source][field_s_news_categories_1][field_s_news_categories]</div>
+           <div>[body]</div>
+      </div>
+
+      </div>
+<div class="edit-link">[edit_node]</div>'),
+    t('There are no news items to display.'),
+    t('Feed'),
+    t('more'),
+    t('2 Item Recent News List Block'),
+    t('Recent News'),
+    t('Homepage block of two items'),
+    t('<div class="descriptor">[field_s_news_date] [field_s_news_source]</div>
+      <div class="postcard-left">
+
+      <div class="postcard-image">
+           <div class="news-image">[field_s_image_info]</div>
+      </div>
+      <div class="postcard-content">
+           <div class="normal-link"><h3>[title]</h3></div>
+      </div>
+
+      </div>
+      <div class="edit-link">[edit_node]</div>'),
+    t('5 Item News List Block with Pager'),
+    t('Recent News block for News Landing page'),
+    t('There are no news items to display'),
+    t('5 Item News List Page with Pager'),
+    t('Contains exposed filter search for title and news categories'),
+    t('Search by title'),
+    t('Filter by category'),
+    t('3 Item News List Block with Details'),
+    t('Recent News block for Home page'),
+  );
   $export['stanford_news'] = $view;
 
   return $export;
