@@ -1,6 +1,10 @@
 Stanford News x.x-x.x, xxxx-xx-xx
 ---------------------------------
 
+Stanford News 7.x-3.1-caw 2015-06-25
+---------------------------------
+- CAW specific fork starting point.
+
 Stanford News 7.x-3.1, 2015-06-25
 ---------------------------------
 Changes since 7.x-3.0:
